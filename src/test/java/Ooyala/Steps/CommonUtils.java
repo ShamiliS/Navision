@@ -18,7 +18,7 @@ import org.w3c.dom.NodeList;
 
 import test.java.runner.cusRunner2;
 
-public class CommonUtils extends cusRunner2{
+public class CommonUtils extends cusRunner2 {
 
 	protected static WebDriver driver;
 
@@ -27,9 +27,7 @@ public class CommonUtils extends cusRunner2{
 		switch (bType) {
 		case "Firefox":
 			System.out.println("Launching Firefox browser..");
-			System.setProperty("webdriver.gecko.driver",
-					System.getProperty("user.dir")
-							+ "\\lib\\geckodriver.exe");
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\lib\\geckodriver.exe");
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			driver.navigate().to(appURL);
@@ -37,8 +35,7 @@ public class CommonUtils extends cusRunner2{
 
 		case "Chrome":
 			System.out.println("Launching Google Chrome..");
-			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "\\lib\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\lib\\chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
 			driver.navigate().to(appURL);
@@ -47,8 +44,7 @@ public class CommonUtils extends cusRunner2{
 		case "IE":
 			System.out.println("Launching Internet Explorer..");
 			System.setProperty("webdriver.ie.driver",
-					System.getProperty("user.dir")
-							+ "\\lib\\iedriver\\IEDriverServer.exe");
+					System.getProperty("user.dir") + "\\lib\\iedriver\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			driver.manage().window().maximize();
 			driver.navigate().to(appURL);
@@ -63,8 +59,7 @@ public class CommonUtils extends cusRunner2{
 
 		Map<String, String> userdet = new HashMap<String, String>();
 
-		File file = new File(System.getProperty("user.dir")
-				+ "\\src\\test\\java\\Ooyala\\TestData\\testdata.xml");
+		File file = new File(System.getProperty("user.dir") + "\\TestData\\testdata.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(file);
@@ -76,8 +71,7 @@ public class CommonUtils extends cusRunner2{
 			if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 				Element eElement = (Element) nNode;
 				userdet.put("ExpectedURL",
-						eElement.getElementsByTagName("ExpectedURL").item(0)
-								.getTextContent().toString());
+						eElement.getElementsByTagName("ExpectedURL").item(0).getTextContent().toString());
 			}
 		}
 		return userdet;
