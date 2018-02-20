@@ -1,0 +1,11 @@
+test\java\Ooyala\AppProperties.class
+test\java\Ooyala\Pages\LoginTestPage.class
+test\java\Ooyala\Pages\CommonTestPage.class
+test\java\runner\cusRunner2.class
+test\java\Ooyala\Steps\LoginPage.class
+test\java\runner\TestRunner.class
+test\java\Ooyala\Steps\CommonUtils.class
+test\java\Ooyala\Steps\SecureAreaPage.class
+test\java\Ooyala\Pages\SecureAreaTestPage.class
+test\java\runner\customRunner.class
+test\java\runner\TestRun.class

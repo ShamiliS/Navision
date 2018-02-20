@@ -1,4 +1,4 @@
-package Ooyala.Steps;
+package test.java.Ooyala.Steps;
 
 import java.io.File;
 import java.util.HashMap;
@@ -16,7 +16,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-public class CommonUtils {
+import test.java.runner.cusRunner2;
+
+public class CommonUtils extends cusRunner2{
 
 	protected static WebDriver driver;
 
@@ -27,7 +29,7 @@ public class CommonUtils {
 			System.out.println("Launching Firefox browser..");
 			System.setProperty("webdriver.gecko.driver",
 					System.getProperty("user.dir")
-							+ "\\lib\\gechodriver\\geckodriver.exe");
+							+ "\\lib\\geckodriver.exe");
 			driver = new FirefoxDriver();
 			driver.manage().window().maximize();
 			driver.navigate().to(appURL);
@@ -62,7 +64,7 @@ public class CommonUtils {
 		Map<String, String> userdet = new HashMap<String, String>();
 
 		File file = new File(System.getProperty("user.dir")
-				+ "\\TestData\\testdata.xml");
+				+ "\\src\\test\\java\\Ooyala\\TestData\\testdata.xml");
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = dBuilder.parse(file);

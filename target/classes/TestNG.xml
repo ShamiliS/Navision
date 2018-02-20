@@ -4,9 +4,8 @@
 	preserve-order="true">
 
 	<test name="Chrome" allow-return-values="false">
-		<!-- <parameter name="browser" value="Chrome" /> -->
 		<classes>
-			<class name="runner.TestRun" />
+			<class name="test.java.runner.TestRun" />
 		</classes>
 	</test>
 

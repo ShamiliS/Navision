@@ -1,14 +1,13 @@
-package Ooyala.Pages;
+package test.java.Ooyala.Pages;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import Ooyala.Steps.CommonUtils;
+import test.java.Ooyala.Steps.CommonUtils;
 
 public class SecureAreaTestPage extends CommonUtils {
 

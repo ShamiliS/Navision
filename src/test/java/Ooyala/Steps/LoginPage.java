@@ -1,49 +1,58 @@
-package Ooyala.Steps;
+package test.java.Ooyala.Steps;
 
 import java.util.List;
 import java.util.Map;
 
-//import org.testng.Reporter;
+import org.testng.Reporter;
 
-import Ooyala.Pages.CommonTestPage;
-import Ooyala.Pages.LoginTestPage;
-import cucumber.api.DataTable;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import test.java.Ooyala.AppProperties;
+import test.java.Ooyala.Pages.CommonTestPage;
+import test.java.Ooyala.Pages.LoginTestPage;
 
 public class LoginPage extends CommonUtils {
 
 	List<Map<String, String>> data;
 	String Uname, Passw, msg;
+	static String type;
 
-	@Before
+	/*@Before
+	@BeforeTest
 	public void initalize() {
 		System.out.println("Opening Application..");
-	}
-
+	}*/
+	
+/*	@Before
+	@BeforeTest
+	public static String getBrowserType(ITestContext test){
+		type = customRunner.getBrowsers().get(test.getName());
+		return customRunner.getBrowsers().get(test.getName());
+	}*/
+	
 	@Given("^launch an application URL$")
-	public void launch_an_application_URL(DataTable launchDetails)
-			throws Throwable {
-
-		data = launchDetails.asMaps(String.class, String.class);
-		String browserType = data.get(0).get("BrowserType");
-		String appURL = data.get(0).get("URL");
-
+	public void launch_an_application_URL() throws Throwable {
+		
+		String browserType;
+		//= customRunner.getBrowser();
+		
+		browserType = AppProperties.getBrowsertype();
+		String appURL = AppProperties.getAppurl();
+		
 		CommonUtils.setDriver(browserType, appURL);
+	    
 	}
-
 	@When("^I should see Login Page$")
 	public void i_navigate_to_Login_Page() throws Throwable {
 		LoginTestPage loginpage = new LoginTestPage(driver);
 
 		boolean lblLoginpage = loginpage.getPageTitle().isDisplayed();
 		if (!lblLoginpage) {
-			//Reporter.log("Login page is not displayed successfully");
+			Reporter.log("Login page is not displayed successfully");
 		} else {
-			//Reporter.log("Login page is displayed successfully");
+			Reporter.log("Login page is displayed successfully");
 		}
 	}
 
@@ -74,9 +83,9 @@ public class LoginPage extends CommonUtils {
 		msg = commonpage.getLblFlashMsg().getText();
 
 		if (msg.equals(" You logged into a secure area!")) {
-			//Reporter.log("Logged into the application successfully");
+			Reporter.log("Logged into the application successfully");
 		} else {
-			//Reporter.log("problem!!Logging into the application");
+			Reporter.log("problem!!Logging into the application");
 		}
 	}
 
@@ -95,17 +104,25 @@ public class LoginPage extends CommonUtils {
 
 		msg = commonpage.getLblFlashMsg().getText();
 		if (msg.equals(Message)) {
-			//Reporter.log("Logged into the application successfully");
+			Reporter.log("Logged into the application successfully");
 		} else {
-			//Reporter.log("problem!!Logging into the application");
+			Reporter.log("problem!!Logging into the application");
 		}
 	}
 
 	@After
 	public void teardown() {
 		System.out.println("Quiting Application..");
-		driver.close();
-		driver.quit();
+		try {
+			driver.close();
+		} catch (Exception e) {
+			
+		}
+		try {
+			driver.quit();
+		} catch (Exception e) {
+			
+		}
 	}
-
+	
 }

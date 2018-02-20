@@ -1,4 +1,4 @@
-package Ooyala.Steps;
+package test.java.Ooyala.Steps;
 
 import java.util.List;
 import java.util.Map;
@@ -6,14 +6,13 @@ import java.util.Map;
 import org.openqa.selenium.WebElement;
 //import org.testng.Reporter;
 
-import Ooyala.Steps.CommonUtils;
-import Ooyala.Pages.CommonTestPage;
-import Ooyala.Pages.SecureAreaTestPage;
 import cucumber.api.java.en.Then;
+import test.java.Ooyala.Pages.CommonTestPage;
+import test.java.Ooyala.Pages.SecureAreaTestPage;
 
 public class SecureAreaPage extends CommonUtils {
 
-	SecureAreaTestPage Securepage = new SecureAreaTestPage(driver);
+	static SecureAreaTestPage Securepage = new SecureAreaTestPage(driver);
 	int nooflinks;
 	Map<String, String> inputdata;
 	CommonTestPage commonpage = new CommonTestPage(driver);
@@ -21,7 +20,7 @@ public class SecureAreaPage extends CommonUtils {
 	List<WebElement> links;
 
 	@Then("^I Logout from the application$")
-	public void i_Logout_from_the_application() throws Throwable {
+	public static void i_Logout_from_the_application() throws Throwable {
 
 		Securepage.getLnkLogout().isDisplayed();
 		Securepage.getLnkLogout().click();
