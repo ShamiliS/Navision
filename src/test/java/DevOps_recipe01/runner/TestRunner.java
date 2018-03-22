@@ -7,7 +7,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "feature/Navision.feature", glue = "test.java.DevOps_recipe01.Steps", format = { "pretty",
-		"html:target/site/cucumber-pretty", "json:target/cucumber.json" })
+		"html:target/site/cucumber-pretty", "json:target/cucumber.json" }, plugin = {
+				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" })
+
 public class TestRunner {
 
 }

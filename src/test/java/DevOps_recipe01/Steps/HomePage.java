@@ -9,7 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
 
-import cucumber.api.PendingException;
+import com.cucumber.listener.Reporter;
+
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -28,6 +30,7 @@ public class HomePage extends CommonUtils {
 	@Before
 	public void initalize() throws Exception {
 		System.out.println("Opening Application..");
+		Reporter.assignAuthor("Regression");
 
 	}
 
@@ -96,8 +99,15 @@ public class HomePage extends CommonUtils {
 	}
 
 	@After
-	public void teardown() {
+	public void teardown(Scenario scen) {
 		System.out.println("Quiting Application..");
+
+		if (scen.isFailed()) {
+			takeScreenshot();
+		} else {
+			System.out.println(scen.getStatus());
+		}
+
 		driver.close();
 		driver.quit();
 	}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="1" guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Regression]" parallel="tests">
-  <test name="Chrome">
+<suite thread-count="1" verbose="0" name="Failed suite [Surefire suite]" junit="true">
+  <test name="Surefire test">
     <classes>
-      <class name="test.java.DevOps_recipe01.runner.TestNGRun"/>
+      <class name="test.java.DevOps_recipe01.runner.TestRunner"/>
     </classes>
-  </test> <!-- Chrome -->
-</suite> <!-- Failed suite [Regression] -->
+  </test> <!-- Surefire test -->
+</suite> <!-- Failed suite [Surefire suite] -->

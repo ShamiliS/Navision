@@ -7,7 +7,6 @@
 		<parameter name="browser" value="Chrome" />
 		<classes>
 			<class name="test.java.runner.TestRun" />
-<!-- 			<class name="test.java.runner.cusRunner2" /> -->
 		</classes>
 	</test>
 
@@ -16,7 +15,6 @@
 
 		<classes>
 			<class name="test.java.runner.TestRun" />
-<!-- 			<class name="test.java.runner.cusRunner2" /> -->
 		</classes>
 	</test>
 

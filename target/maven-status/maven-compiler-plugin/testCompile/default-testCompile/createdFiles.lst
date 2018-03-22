@@ -1,4 +1,5 @@
 test\java\DevOps_recipe01\Pages\SogetiUKTestPage.class
+test\java\DevOps_recipe01\Manager\FileReaderManager.class
 test\java\DevOps_recipe01\Pages\NavisionTestPage.class
 test\java\DevOps_recipe01\Steps\CommonUtils.class
 test\java\DevOps_recipe01\Steps\NavisionPage.class
